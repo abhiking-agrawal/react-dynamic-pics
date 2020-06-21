@@ -7,6 +7,8 @@ class SeachBar extends React.Component {
     onFormSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
+        this.props.onSubmit(this.state.term)
+        
     }
     render() {
         return (<div>
@@ -15,12 +17,9 @@ class SeachBar extends React.Component {
                     <label>Image Search</label>
                     <input type="text" 
                         value ={this.state.term}
+                        autoComplete="off"
                         onChange={(e)=> this.setState({term : e.target.value})} name="searchText" placeholder="First Name" />
                 </div>
-
-                {this.state.term}
-
-                <button className="ui button" type="submit">Submit</button>
             </form>
         </div>
         )
